@@ -1,0 +1,150 @@
+* {
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0
+}
+
+body {
+    background-color: rgb(120, 119, 119);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 32px;
+}
+
+header {
+    text-align: center;
+    color: white;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.tiles {
+    width: 350px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.keyboard {
+    width: 393px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.keyboard button {
+    height: 52px;
+    width: 35px;
+    border-radius: 4px;
+    border: none;
+    color: black;
+    margin: 2px;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 420px) {
+    .keyboard {
+        width: 360px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    .keyboard button {
+        width: 30px;
+    }
+    .game-message {
+        font-size: 18px;
+        margin: 20px;
+    }
+    #A {
+        width: 30px;
+    }
+    .keyboard button:nth-child(20),
+    .keyboard button:nth-child(28) {
+        width: 30px;
+    }
+    .keyboard button:nth-child(11) {
+        margin-left: 20px;
+    }
+}
+
+.keyboard button:nth-child(11) {
+    margin-left: 24px;
+}
+
+.keyboard button:nth-child(19) {
+    margin-right: 10px;
+}
+
+.keyboard button:nth-child(20),
+.keyboard button:nth-child(28) {
+    width: 55px;
+}
+
+.tiles div {
+    display: flex;
+}
+
+.tiles .tile {
+    width: 62px;
+    height: 62px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    border-radius: 4px;
+    font-weight: 600;
+    background-color: white;
+}
+
+.game-message {
+    margin: 15px;
+    border-radius: 10px;
+    padding: 7px;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+}
+
+.tile.flip {
+    animation: 0.5s linear flipping;
+    color: white;
+}
+
+@keyframes flipping {
+    0% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+
+/* Order is important as green needs to overide yellow */
+
+.grey-tile {
+    background-color: #d82323 !important;
+}
+
+.yellow-tile {
+    background-color: #b59f3a !important;
+}
+
+.green-tile {
+    background-color: #538d4e !important;
+}
