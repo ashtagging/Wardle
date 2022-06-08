@@ -9,9 +9,12 @@ const port = 3000;
 app.use(express.static("public"));
 app.use(cors())
 
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
-    res.send("The server is up and running");
+    res.sendFile(__dirname + '/public/index.html');
 })
+
 
 app.get('/word', (req, res) => {
     var options = {
