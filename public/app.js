@@ -5,11 +5,12 @@ const messageDisplay = document.querySelector(".game-message")
 let currentRow = 0;
 let currentTile = 0;
 let isGameOver = false;
+let port = 3000 
 
 let wordle;
 
 const getWordle = () => {
-    fetch('http://localhost:3000/word')
+    fetch(`https://wardle-app.herokuapp.com/word`)
         .then(response => response.json())
         .then(json => {
             wordle = json.toUpperCase()
