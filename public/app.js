@@ -127,7 +127,7 @@ const checkRow = () => {
     const guess = guessTiles[currentRow].join("")
 
     if (currentTile > 4) {
-        fetch(`http://localhost:3000/check/?word=${guess}`)
+        fetch(`https://wardle-app.herokuapp.com/check/?word=${guess}`)
             .then(response => response.json())
             .then(json => {
                 if (json == 'Entry word not found') {
