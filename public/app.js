@@ -10,7 +10,7 @@ let port = 3000
 let wordle;
 
 const getWordle = () => {
-    fetch(`https://wardle-app.herokuapp.com/word`)
+    fetch(`http://localhost:3000/word`)
         .then(response => response.json())
         .then(json => {
             wordle = json.toUpperCase()
@@ -100,7 +100,7 @@ const handleClick = (key) => {
 }
 
 //Adds letter to the tiles, currentTile ++ to move to the next tile
-//If statement to check that there are still tiles that letters can be added to 
+//If statement to check that there are still tiles left that letters can be added to 
 const addLetter = (letter) => {
     if (currentTile < 5 && currentRow < 6) {
         const tile = document.getElementById('guessRow-' + currentRow + "-tile-" + currentTile)
@@ -127,14 +127,13 @@ const checkRow = () => {
     const guess = guessTiles[currentRow].join("")
 
     if (currentTile > 4) {
-        fetch(`https://wardle-app.herokuapp.com/check/?word=${guess}`)
+        fetch(`http://localhost:3000/check/?word=${guess}`)
             .then(response => response.json())
             .then(json => {
                 if (json == 'Entry word not found') {
                     showMessage("Word is invalid! Please try again")
                     return
                 } else {
-                    console.log("guess is " + guess, "wordle is " + wordle)
                     wordGuess()
                     if (wordle === guess) {
                         showMessage("Congratulations you guessed the right word! Refresh the page to play again")
